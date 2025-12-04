@@ -1,0 +1,40 @@
+{
+  "models": [
+    {
+      "name": "Super_Burguer",
+      "file": "super_burguer.glb",
+      "path": "/super_burguer.glb",
+      "displayName": "Super Burguer"
+    },
+    {
+      "name": "Quarteto_Fantastico",
+      "file": "quarteto_fantastico.glb",
+      "path": "/quarteto_fantastico.glb",
+      "displayName": "Quarteto Fantástico"
+    },
+    {
+      "name": "Duplo_Cheddar_Bacon",
+      "file": "Duplo_Cheddar_Bacon.glb",
+      "path": "/Duplo_Cheddar_Bacon.glb",
+      "displayName": "Duplo Cheddar Bacon"
+    },
+    {
+      "name": "X_Frango",
+      "file": "X_Frango.glb",
+      "path": "/X_Frango.glb",
+      "displayName": "X Frango"
+    },
+    {
+      "name": "X_Bacon",
+      "file": "X_Bacon.glb",
+      "path": "/X_Bacon.glb",
+      "displayName": "X Bacon"
+    },
+    {
+      "name": "X_Calabresa",
+      "file": "X_Calabresa.glb",
+      "path": "/X_Calabresa.glb",
+      "displayName": "X Calabresa"
+    }
+  ]
+}
