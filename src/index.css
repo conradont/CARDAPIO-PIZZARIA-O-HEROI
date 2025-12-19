@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Cores customizadas para uso com classes Tailwind */
+  --color-fg-brand-primary: var(--fg-brand-primary, #fff);
+  --color-text-secondary: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  --color-bg-tertiary: var(--bg-tertiary, rgba(255, 255, 255, 0.1));
+
+  /* Stroke colors */
+  --stroke-fg-brand-primary: var(--fg-brand-primary, #fff);
+}
 
 /* Reset básico */
 * {
