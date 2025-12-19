@@ -35,6 +35,30 @@
       "file": "X_Calabresa.glb",
       "path": "/X_Calabresa.glb",
       "displayName": "X Calabresa"
+    },
+    {
+      "name": "X_Presunto",
+      "file": "X_Presunto.glb",
+      "path": "/X_Presunto.glb",
+      "displayName": "X Presunto"
+    },
+    {
+      "name": "X_Egg",
+      "file": "X_Egg.glb",
+      "path": "/X_Egg.glb",
+      "displayName": "X Egg"
+    },
+    {
+      "name": "X_Burguer",
+      "file": "X_Burguer.glb",
+      "path": "/X_Burguer.glb",
+      "displayName": "X Burguer"
+    },
+    {
+      "name": "Autobot",
+      "file": "Autobot.glb",
+      "path": "/Autobot.glb",
+      "displayName": "Autobot"
     }
   ]
 }
