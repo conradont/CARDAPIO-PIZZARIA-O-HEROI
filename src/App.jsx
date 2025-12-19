@@ -177,7 +177,7 @@ function App() {
       image: "/X_Burguer.glb",
       imageUrl: "/X_Burguer.png",
       category: "hamburgueres",
-      price: 15.0,
+      price: 12.0,
       description:
         "O hambúrguer clássico com queijo derretido e ingredientes frescos. Simplicidade e sabor autêntico.",
       ingredients:
@@ -190,7 +190,7 @@ function App() {
       image: "/Autobot.glb",
       imageUrl: "/Autobot.png",
       category: "hamburgueres",
-      price: 28.0,
+      price: 20.0,
       description:
         "O hambúrguer transformado em uma experiência épica. Sabor e tecnologia em cada mordida.",
       ingredients:
@@ -361,7 +361,7 @@ function App() {
                             viewBox="0 0 24 24"
                             fill="#ddd"
                           >
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14git.14 2 9.27l6.91-1.01L12 2z" />
                           </svg>
                           {rating > 0 && (
                             <svg
