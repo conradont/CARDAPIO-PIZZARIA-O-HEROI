@@ -4,6 +4,7 @@ import Modal3D from "./components/Modal3D";
 import RatingsModal from "./components/RatingsModal";
 import RatingForm from "./components/RatingForm";
 import { useRatings } from "./hooks/useRatings";
+import { useModelPreloader } from "./hooks/useModelPreloader";
 import "./App.css";
 
 // Componente para renderizar imagem com fallback
@@ -50,6 +51,9 @@ function App() {
 
   const [selectedModel, setSelectedModel] = useState("/super_burguer.glb");
   const [selectedModelName, setSelectedModelName] = useState("Super_Burguer");
+
+  // Pré-carregar modelos em segundo plano para carregamento mais rápido
+  useModelPreloader(selectedModel);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalModel, setModalModel] = useState(null);

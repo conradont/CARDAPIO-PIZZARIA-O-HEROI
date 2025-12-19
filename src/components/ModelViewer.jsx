@@ -4,25 +4,68 @@ import React, {
   useMemo as useReactMemo,
   useRef,
   useEffect,
+  useState,
 } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { LoadingIndicator } from "@/components/application/loading-indicator/loading-indicator";
 
-// Componente para carregar modelo GLB dinâmico
-function DynamicModel({ modelPath, visible }) {
+// Componente de Loading
+function LoadingSpinner() {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        background: "rgba(26, 26, 26, 0.9)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1000,
+      }}
+    >
+      <LoadingIndicator type="line-spinner" size="md" label="Loading..." />
+    </div>
+  );
+}
+
+// Componente para carregar modelo GLB dinâmico (otimizado - carrega apenas quando visível)
+function DynamicModel({ modelPath, visible, onLoad }) {
+  // useGLTF já faz cache automaticamente
   const gltf = useGLTF(modelPath);
+  const hasNotified = useRef(false);
 
   // Clonar a cena para evitar problemas de referência compartilhada
   const clonedScene = useMemo(() => {
+    if (!gltf?.scene) return null;
     return gltf.scene.clone();
-  }, [gltf.scene]);
+  }, [gltf?.scene]);
+
+  // Notificar quando o modelo estiver carregado e visível
+  useEffect(() => {
+    if (visible && onLoad && clonedScene && !hasNotified.current) {
+      // Pequeno delay para garantir que o modelo está renderizado
+      const timer = setTimeout(() => {
+        onLoad();
+        hasNotified.current = true;
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+    if (!visible) {
+      hasNotified.current = false;
+    }
+  }, [visible, onLoad, clonedScene]);
 
   // Escala ajustada para zoom médio
   const scale = 9;
   // Leve ajuste visual no eixo Y
   const position = [0, -0.35, 0];
 
-  if (!visible) return null;
+  if (!visible || !clonedScene) return null;
 
   return (
     <primitive
@@ -34,9 +77,25 @@ function DynamicModel({ modelPath, visible }) {
   );
 }
 
-// Componente principal do visualizador
+// Lista de todos os modelos disponíveis
+const ALL_MODELS = [
+  "/super_burguer.glb",
+  "/quarteto_fantastico.glb",
+  "/Duplo_Cheddar_Bacon.glb",
+  "/X_Frango.glb",
+  "/X_Bacon.glb",
+  "/X_Calabresa.glb",
+  "/X_Presunto.glb",
+  "/X_Egg.glb",
+  "/X_Burguer.glb",
+  "/Autobot.glb",
+];
+
+// Componente principal do visualizador (otimizado)
 function ModelViewer({ selectedModel, compact = false }) {
   const height = compact ? "200px" : "500px";
+  const [isLoading, setIsLoading] = useState(true);
+
   // Carrega enquadramento salvo pelo usuário
   const saved = useReactMemo(() => {
     if (typeof window === "undefined") return null;
@@ -46,6 +105,15 @@ function ModelViewer({ selectedModel, compact = false }) {
       return null;
     }
   }, []);
+
+  // Resetar loading quando o modelo mudar
+  useEffect(() => {
+    setIsLoading(true);
+  }, [selectedModel]);
+
+  const handleModelLoad = () => {
+    setIsLoading(false);
+  };
 
   if (!selectedModel) {
     return (
@@ -65,8 +133,10 @@ function ModelViewer({ selectedModel, compact = false }) {
     );
   }
 
+  // Renderizar apenas o modelo selecionado (muito mais eficiente)
   return (
     <div style={{ width: "100%", height: height, position: "relative" }}>
+      {isLoading && <LoadingSpinner />}
       <Canvas
         camera={{
           position: saved && saved.position ? saved.position : [0, 0, 2.2],
@@ -78,46 +148,14 @@ function ModelViewer({ selectedModel, compact = false }) {
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 5]} intensity={1} />
           <pointLight position={[-10, -10, -5]} intensity={0.5} />
-          <DynamicModel
-            modelPath="/super_burguer.glb"
-            visible={selectedModel === "/super_burguer.glb"}
-          />
-          <DynamicModel
-            modelPath="/quarteto_fantastico.glb"
-            visible={selectedModel === "/quarteto_fantastico.glb"}
-          />
-          <DynamicModel
-            modelPath="/Duplo_Cheddar_Bacon.glb"
-            visible={selectedModel === "/Duplo_Cheddar_Bacon.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Frango.glb"
-            visible={selectedModel === "/X_Frango.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Bacon.glb"
-            visible={selectedModel === "/X_Bacon.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Calabresa.glb"
-            visible={selectedModel === "/X_Calabresa.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Presunto.glb"
-            visible={selectedModel === "/X_Presunto.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Egg.glb"
-            visible={selectedModel === "/X_Egg.glb"}
-          />
-          <DynamicModel
-            modelPath="/X_Burguer.glb"
-            visible={selectedModel === "/X_Burguer.glb"}
-          />
-          <DynamicModel
-            modelPath="/Autobot.glb"
-            visible={selectedModel === "/Autobot.glb"}
-          />
+          {/* Renderizar apenas o modelo selecionado */}
+          {selectedModel && (
+            <DynamicModel
+              modelPath={selectedModel}
+              visible={true}
+              onLoad={handleModelLoad}
+            />
+          )}
           <PersistedControls saved={saved} />
         </Suspense>
       </Canvas>
