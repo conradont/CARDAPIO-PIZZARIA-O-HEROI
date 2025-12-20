@@ -79,9 +79,9 @@ function App() {
       category: "hamburgueres",
       price: 19.0,
       description:
-        "É a engenharia do sabor com pão brioche, blend nobre e molho secreto. A essência do que um hambúrguer deve ser.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, presunto, bacon, ovo, calabresa, molho especial",
       ingredients:
-        "Pão brioche, blend bovino, tomate, alface, queijo, molho especial",
+        "Pão brioche, blend bovino, tomate, alface, queijo, presunto, bacon, ovo, calabresa, molho especial",
     },
     {
       id: "Quarteto_Fantastico",
@@ -90,11 +90,11 @@ function App() {
       image: "/quarteto_fantastico.glb",
       imageUrl: "/quarteto_fantastico.png",
       category: "hamburgueres",
-      price: 25.0,
+      price: 22.0,
       description:
-        "O combo épico com quatro deliciosos sabores em um só hambúrguer.",
+        "Pão, Carne artesanal, Queijo, Bacon, Cebola caramelizada, Creamcheese e Salada",
       ingredients:
-        "Pão, carne, queijo, bacon, cebola caramelisada  , molhos especiais",
+        "Pão, Carne artesanal, Queijo, Bacon, Cebola caramelizada, Creamcheese e Salada",
     },
     {
       id: "Duplo_Cheddar_Bacon",
@@ -105,9 +105,9 @@ function App() {
       category: "hamburgueres",
       price: 22.0,
       description:
-        "O sabor intenso do cheddar duplo combinado com bacon crocante. Uma explosão de sabores em cada mordida.",
+        "Pão brioche, 2x blend bovino, 2x bacon, 2x cheddar, tomate, alface e molho",
       ingredients:
-        "Pão brioche, dois hambúrgueres, cheddar duplo, bacon crocante, cebola, molho especial",
+        "Pão brioche, 2x blend bovino, 2x bacon, 2x cheddar, tomate, alface e molho",
     },
     {
       id: "X_Frango",
@@ -118,9 +118,9 @@ function App() {
       category: "hamburgueres",
       price: 15.0,
       description:
-        "Frango grelhado suculento com ingredientes frescos. A opção perfeita para quem busca sabor e qualidade.",
+        "Pão brioche, blend frango, tomate, alface, cheddar, presunto, molho especial",
       ingredients:
-        "Pão brioche, frango grelhado, queijo, alface, tomate, maionese especial",
+        "Pão brioche, blend frango, tomate, alface, cheddar, presunto, molho especial",
     },
     {
       id: "X_Bacon",
@@ -131,9 +131,9 @@ function App() {
       category: "hamburgueres",
       price: 15.0,
       description:
-        "O clássico hambúrguer com bacon crocante e queijo derretido. Sabor tradicional que nunca sai de moda.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, bacon, molho especial",
       ingredients:
-        "Pão brioche, hambúrguer bovino, queijo, bacon crocante, alface, tomate, maionese",
+        "Pão brioche, blend bovino, tomate, alface, queijo, bacon, molho especial",
     },
     {
       id: "X_Calabresa",
@@ -144,9 +144,9 @@ function App() {
       category: "hamburgueres",
       price: 15.0,
       description:
-        "Hambúrguer com calabresa fatiada, queijo e molho especial. Um sabor picante e irresistível.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, calabresa, molho especial",
       ingredients:
-        "Pão brioche, hambúrguer bovino, calabresa fatiada, queijo, cebola, molho especial",
+        "Pão brioche, blend bovino, tomate, alface, queijo, calabresa, molho especial",
     },
     {
       id: "X_Presunto",
@@ -157,9 +157,9 @@ function App() {
       category: "hamburgueres",
       price: 15.0,
       description:
-        "Hambúrguer clássico com presunto suculento e queijo derretido. Simplicidade e sabor em cada mordida.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, presunto, molho especial",
       ingredients:
-        "Pão brioche, hambúrguer bovino, presunto, queijo, alface, tomate, maionese",
+        "Pão brioche, blend bovino, tomate, alface, queijo, presunto, molho especial",
     },
     {
       id: "X_Egg",
@@ -170,9 +170,9 @@ function App() {
       category: "hamburgueres",
       price: 15.0,
       description:
-        "Hambúrguer com ovo frito, queijo e ingredientes frescos. O toque especial que faz toda a diferença.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, ovo frito, molho especial",
       ingredients:
-        "Pão brioche, hambúrguer bovino, ovo frito, queijo, alface, tomate, maionese",
+        "Pão brioche, blend bovino, tomate, alface, queijo, ovo frito, molho especial",
     },
     {
       id: "X_Burguer",
@@ -183,9 +183,9 @@ function App() {
       category: "hamburgueres",
       price: 12.0,
       description:
-        "O hambúrguer clássico com queijo derretido e ingredientes frescos. Simplicidade e sabor autêntico.",
+        "Pão brioche, blend bovino, tomate, alface, queijo, molho especial",
       ingredients:
-        "Pão brioche, hambúrguer bovino, queijo, alface, tomate, maionese",
+        "Pão brioche, blend bovino, tomate, alface, queijo, molho especial",
     },
     {
       id: "Autobot",
@@ -196,9 +196,9 @@ function App() {
       category: "hamburgueres",
       price: 20.0,
       description:
-        "O hambúrguer transformado em uma experiência épica. Sabor e tecnologia em cada mordida.",
+        "Pão, Carne artesanal, Queijo, Calabresa, Cebola caramelizada, Creamcheese e Salada",
       ingredients:
-        "Pão especial, blend premium, queijos especiais, ingredientes selecionados, molho exclusivo",
+        "Pão, Carne artesanal, Queijo, Calabresa, Cebola caramelizada, Creamcheese e Salada",
     },
   ];
 

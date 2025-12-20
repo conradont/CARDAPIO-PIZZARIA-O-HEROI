@@ -1,0 +1,11 @@
+# Este projeto é um projeto JavaScript/Node.js (React + Vite)
+# As dependências estão definidas no arquivo package.json
+# 
+# Para instalar as dependências, use:
+# npm install
+#
+# Se você precisar adicionar dependências Python no futuro,
+# adicione-as abaixo seguindo o formato:
+# nome-do-pacote==versao
+
+
